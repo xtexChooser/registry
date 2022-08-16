@@ -8,7 +8,7 @@ import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
-class FormatTask<T>(@get:InputFiles val path: File, @get:Internal val serializer: KSerializer<T>) : DefaultTask() {
+open class FormatTask<T>(@get:InputFiles val path: File, @get:Internal val serializer: KSerializer<T>) : DefaultTask() {
 
     init {
         group = "format"
