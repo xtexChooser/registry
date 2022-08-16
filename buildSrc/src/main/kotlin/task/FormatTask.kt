@@ -22,7 +22,7 @@ open class FormatTask<T> @Inject constructor(
     @TaskAction
     fun format() {
         path.listFiles()!!.forEach { file ->
-            file.writeText(Yaml.encodeToString(serializer, Yaml.decodeFromString(serializer, file.readText())))
+            file.writeText(Yaml.encodeToString(serializer, Yaml.decodeFromString(serializer, file.readText())) + "\n")
         }
     }
 

@@ -10,4 +10,5 @@ repositories {
 
 dependencies {
     implementation("net.mamoe.yamlkt:yamlkt:0.12.0")
+    implementation("com.github.seancfoley:ipaddress:5.3.4")
 }
