@@ -1,3 +1,4 @@
-server: cn-gz1
 desc: Per Server Allocation
 mnt-by: xtexChooser
+server: 'cn-gz1'
+hostname: null
