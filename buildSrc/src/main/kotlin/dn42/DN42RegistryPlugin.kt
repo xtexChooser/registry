@@ -11,24 +11,32 @@ import task.FormatTask
 class DN42RegistryPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
-        target.tasks.create<CheckInetnumRangeTask>(
-            "checkInetnumRange", target.file("inetnum"),
-            setOf(IPAddressString("172.20.206.64/26").sequentialRange)
-        )
-        target.tasks.create<CheckInetnumRangeTask>(
-            "checkInet6numRange", target.file("inet6num"),
-            setOf(IPAddressString("fd10:78d4:da31::/48").sequentialRange)
-        )
-        target.tasks.create<FormatTask<DN42Inetnum>>(
-            "formatInetnum",
-            target.file("inetnum"),
-            DN42Inetnum.serializer()
-        )
-        target.tasks.create<FormatTask<DN42Inetnum>>(
-            "formatInet6num",
-            target.file("inet6num"),
-            DN42Inetnum.serializer()
-        )
+        target.run {
+            val ranges = setOf(
+                IPAddressString("172.20.206.64/26").sequentialRange,
+                IPAddressString("fd10:78d4:da31::/48").sequentialRange,
+            )
+            tasks.create<CheckInetnumRangeTask>(
+                "checkInetnumRange",
+                file("inetnum"),
+                ranges.filter { it.lower.isIPv4 }
+                )
+            tasks.create<CheckInetnumRangeTask>(
+                "checkInet6numRange",
+                file("inet6num"),
+                ranges.filter { it.lower.isIPv6 }
+            )
+            tasks.create<FormatTask<DN42Inetnum>>(
+                "formatInetnum",
+                file("inetnum"),
+                DN42Inetnum.serializer()
+            )
+            tasks.create<FormatTask<DN42Inetnum>>(
+                "formatInet6num",
+                file("inet6num"),
+                DN42Inetnum.serializer()
+            )
+        }
     }
 
 }

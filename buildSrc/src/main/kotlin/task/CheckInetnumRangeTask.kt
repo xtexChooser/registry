@@ -28,7 +28,7 @@ open class CheckInetnumRangeTask @Inject constructor(
             if (range == null)
                 error("inetnum ${file.name} is not a valid address range")
             if (ranges.all { range.subtract(it).isNotEmpty() }) {
-                error("inetnum ${file.name} is in any valid range")
+                error("inetnum ${file.name} is not in any valid range")
             } else {
                 logger.lifecycle("inetnum ${file.name} is valid")
             }
