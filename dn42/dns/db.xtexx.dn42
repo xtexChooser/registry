@@ -1,0 +1,18 @@
+cn      IN  CNAME   xtexx.ml.
+svr     IN  CNAME   svr.xtexx.ml.
+
+cn-gz1.svr      IN  AAAA    fd10:78d4:da31::
+                    A       172.20.206.64
+v6.cn-gz1.svr   IN  AAAA    fd10:78d4:da31::
+v4.cn-gz1.svr   IN  A       172.20.206.64
+
+ns      IN  AAAA    fd10:78d4:da31::11
+            AAAA    fd10:78d4:da31::12
+            A       172.20.206.64
+            A       172.20.206.65
+ns1     IN  AAAA    fd10:78d4:da31::11
+            A       172.20.206.64
+ns2     IN  AAAA    fd10:78d4:da31::12
+            A       172.20.206.65
+
+www     IN  CNAME   cn-gz1.svr

@@ -19,12 +19,12 @@ class DN42RegistryPlugin : Plugin<Project> {
             tasks.create<CheckInetnumRangeTask>(
                 "checkInetnumRange",
                 file("inetnum"),
-                ranges.filter { it.lower.isIPv4 }
+                ranges.filter { it.lower.isIPv4 }.toSet()
                 )
             tasks.create<CheckInetnumRangeTask>(
                 "checkInet6numRange",
                 file("inet6num"),
-                ranges.filter { it.lower.isIPv6 }
+                ranges.filter { it.lower.isIPv6 }.toSet()
             )
             tasks.create<FormatTask<DN42Inetnum>>(
                 "formatInetnum",
