@@ -7,8 +7,12 @@ import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 import java.io.File
+import javax.inject.Inject
 
-open class FormatTask<T>(@get:InputFiles val path: File, @get:Internal val serializer: KSerializer<T>) : DefaultTask() {
+open class FormatTask<T> @Inject constructor(
+    @get:InputFiles val path: File,
+    @get:Internal val serializer: KSerializer<T>
+) : DefaultTask() {
 
     init {
         group = "format"
