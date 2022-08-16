@@ -1,3 +1,4 @@
 server: cn-gz1
 desc: Name Server
 mnt-by: xtexChooser
+hostname: ns.xtexx.dn42

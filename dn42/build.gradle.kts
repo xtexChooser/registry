@@ -1,0 +1,1 @@
+apply<dn42.DN42RegistryPlugin>()
